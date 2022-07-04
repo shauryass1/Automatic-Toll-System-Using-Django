@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="RegisterCSS.css" class="rel">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="icon" href="{% static '/images/ATS-Logo.png' %}" type="image/x-icon" class="icon">
+    <link rel="stylesheet" href="{% static '/RegisterCSS.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    <div class="navigate">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACGklEQVRoge2YP27UUBCH30S7IRIUXCARXCJ9aNgVTWhCnxwAjsAxNlSJhESFRIHEESg4ABUF2TQJiZRIIIQW5aPwKniHZ7+/tneFv27Xb34zPz/7zcjG9PT0ZANYA14An4EZ8czmGs+BtTYNvEoouorDtorfbqB4gBtguypvzu05yKhVRowx+w1pFwAD4FzduVGC3lhpXQLrOWt2JfwGDBP0BsCZ0hzb1uZ6hJ6p329FZBYrJiK/jTHvHDnyANwBrtTd2smg+0hpXgMbOWqOKWYAPAQeA6+BX+7Dx8puJwY0wAPgU4SBN13XfgvFo/c+0MD3ruteALgPfAlxEJqg89km1UDns020AVqebYAnwCkwpdS0UgxMGjIAMLHkm5aunyQZAIYU40AZayv31HOOGrkNjFTchU4YaGA41ygzUmvGcxMn5WuxBo5V3D9bHmHiUGkeecaFGWDJZpsYA091UIPsqtwvXQG6XltT2XO6zIcekT+GCoj+g2LeuBtbUSA/ROReKfeWMeZrXYCILNRsMxDWrhMpF0TxTvz0XW+MhwEdkIqvftWN1Ovb+2jUEN4GqJhVcq23cGr5b+pTqPXYoqLV1+gkjQb87cy3Glg+1QycjjpCRD4YYzaDA2t2wDqr1Ojkm21qWNpTyJeVP4Wc70DbjS2Uld+B3kDXePeB1NOiqXdp5XfAZiBuBnHTlO4ivjPIsuj29Pzv/AHOWu7aRtheiQAAAABJRU5ErkJggg==">
+
+            <a class="navbar-brand" style="color:white;" href="#">ATS-Automatic Toll System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html" style="color:white;">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="paybill.html" style="color:white;">Pay Bills</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html" style="color:white;">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html" style="color:white;">About US</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <div class="row top-row">
+        <h1><b>Fill up the form for further proceedings.</b></h1>
+    </div>
+    <div class="row first">
+    <form method="POST" action="{% url 'registration' %}">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="fname" class="col-sm-4 col-form-label">First Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="lname" class="col-sm-4 col-form-label">Last Name</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="uname" class="col-sm-4 col-form-label">Username</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="uname" name="uname" placeholder="Username">
+            </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label">Email</label>
+          <div class="col-sm-8">
+            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="pass1" class="col-sm-4 col-form-label">Password</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Password">
+          </div>
+        </div>
+        <div class="row bottom-row">
+        <button type="submit" class="btn btn-outline-light">Sign Up</button>
+    </div>
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

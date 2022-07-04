@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="icon" href="{% static '/images/ATS-Logo.png' %}" type="image/x-icon" class="icon">
+    <title>ATS-Automatic Toll System</title>
+    <link rel="stylesheet" href="{% static '/main.css' %}">
+    {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</head>
+<body>
+    <div class="navigate">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAACGklEQVRoge2YP27UUBCH30S7IRIUXCARXCJ9aNgVTWhCnxwAjsAxNlSJhESFRIHEESg4ABUF2TQJiZRIIIQW5aPwKniHZ7+/tneFv27Xb34zPz/7zcjG9PT0ZANYA14An4EZ8czmGs+BtTYNvEoouorDtorfbqB4gBtguypvzu05yKhVRowx+w1pFwAD4FzduVGC3lhpXQLrOWt2JfwGDBP0BsCZ0hzb1uZ6hJ6p329FZBYrJiK/jTHvHDnyANwBrtTd2smg+0hpXgMbOWqOKWYAPAQeA6+BX+7Dx8puJwY0wAPgU4SBN13XfgvFo/c+0MD3ruteALgPfAlxEJqg89km1UDns020AVqebYAnwCkwpdS0UgxMGjIAMLHkm5aunyQZAIYU40AZayv31HOOGrkNjFTchU4YaGA41ygzUmvGcxMn5WuxBo5V3D9bHmHiUGkeecaFGWDJZpsYA091UIPsqtwvXQG6XltT2XO6zIcekT+GCoj+g2LeuBtbUSA/ROReKfeWMeZrXYCILNRsMxDWrhMpF0TxTvz0XW+MhwEdkIqvftWN1Ovb+2jUEN4GqJhVcq23cGr5b+pTqPXYoqLV1+gkjQb87cy3Glg+1QycjjpCRD4YYzaDA2t2wDqr1Ojkm21qWNpTyJeVP4Wc70DbjS2Uld+B3kDXePeB1NOiqXdp5XfAZiBuBnHTlO4ivjPIsuj29Pzv/AHOWu7aRtheiQAAAABJRU5ErkJggg==">
+            <a class="navbar-brand" style="color:white;" href="/">ATS-Automatic Toll System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/" style="color:white;">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/paybill" style="color:white;">Pay Bills</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact" style="color:white;">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about" style="color:white;">About US</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+
+
+    <div class="row first">
+      <div class="col-md-6 col-sl-12 firstfirst">
+
+        <h1><b>Pay only for what you use.</b></h1>
+        <h3>An Automated Toll System which will let you pay only for the roads</h3>
+      </div>
+      <div class="col-md-6 col-sl-12 firstsecond">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-outline-light">Sign in</button>
+          <button type="submit" class="btn btn-outline-light"><a href="/registration" style="color:white;"> Register</a></button>
+        </form>
+      </div>
+    </div>
+    <div class="row second">
+      <div align="center"  class="col-md-4 col-lg-4 col-sl-12">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 172 172" style=" fill:#000000;">
+        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#7c9473"><path d="M89.13094,15.10375c-30.4784,0.5504 -34.16081,23.01414 -27.45281,48.71094c-1.204,0.7224 -3.16238,2.98796 -2.68078,7.08156c0.9288,7.6024 4.0248,9.52987 6.02,9.70188c0.7568,7.0864 5.43708,15.48215 7.94828,16.82375c0,5.0568 0.20022,8.94051 -0.31578,14.47891c-6.02,16.2024 -46.67785,11.66402 -48.56985,42.89922h75.95547c-2.3736,-5.2288 -3.71547,-11.0424 -3.71547,-17.2c0,-10.32 3.75095,-19.71147 9.97735,-26.93547c-0.344,-4.9192 -0.20828,-8.56426 -0.20828,-13.24266c2.5112,-1.3416 7.01679,-9.73735 7.77359,-16.82375c1.9952,-0.172 5.0912,-2.09948 6.02,-9.70188c0.4816,-4.0936 -1.47759,-6.35916 -2.64719,-7.08156c3.1992,-9.6664 9.87334,-39.56134 -12.34906,-42.65734c-2.3048,-4.0248 -8.15307,-6.05359 -15.75547,-6.05359zM137.6,103.2c-18.92,0 -34.4,15.48 -34.4,34.4c0,18.92 15.48,34.4 34.4,34.4c18.92,0 34.4,-15.48 34.4,-34.4c0,-18.92 -15.48,-34.4 -34.4,-34.4zM137.6,110.08c15.136,0 27.52,12.384 27.52,27.52c0,15.136 -12.384,27.52 -27.52,27.52c-15.136,0 -27.52,-12.384 -27.52,-27.52c0,-15.136 12.384,-27.52 27.52,-27.52zM155.11578,127.29344c-0.87634,-0.07998 -1.78509,0.17722 -2.51953,0.7861l-18.22797,15.18437l-8.0961,-8.09609c-1.34504,-1.34504 -3.51933,-1.34504 -4.86437,0c-1.34504,1.34504 -1.34504,3.51933 0,4.86437l10.32,10.32c0.66736,0.66736 1.54811,1.00781 2.43219,1.00781c0.78088,0 1.56391,-0.26633 2.20375,-0.79953l20.64,-17.2c1.45856,-1.21432 1.65448,-3.38566 0.43672,-4.84422c-0.60716,-0.72928 -1.44835,-1.14283 -2.32469,-1.22281z"></path></g></g></svg>
+        <h3>Privacy</h3>
+        <p>Your privacy, <br>is our first Pirority.</p>
+      </div>
+      <div align="center" class="col-md-4 col-lg-4 col-sl-12">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+        width="100" height="100"
+        viewBox="0 0 172 172"
+        style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1"></path><g><path d="M86,165.55c-43.86,0 -79.55,-35.69 -79.55,-79.55c0,-43.86 35.69,-79.55 79.55,-79.55c43.86,0 79.55,35.69 79.55,79.55c0,43.86 -35.69,79.55 -79.55,79.55z" fill="#7c9473" stroke="none" stroke-width="1"></path><path d="M86,8.6c42.57,0 77.4,34.83 77.4,77.4c0,42.57 -34.83,77.4 -77.4,77.4c-42.57,0 -77.4,-34.83 -77.4,-77.4c0,-42.57 34.83,-77.4 77.4,-77.4M86,4.3c-45.15,0 -81.7,36.55 -81.7,81.7c0,45.15 36.55,81.7 81.7,81.7c45.15,0 81.7,-36.55 81.7,-81.7c0,-45.15 -36.55,-81.7 -81.7,-81.7z" fill="#7c9473" stroke="none" stroke-width="1"></path><path d="M48.16,86.43l24.94,24.94l56.76,-56.76" fill="none" stroke="#ffffff" stroke-width="12.9"></path></g></g></svg>
+        <h3>Easy to use</h3>
+        <p>User friendly portal,<br> to pay road tax anytime, anywhere.</p>
+      </div>
+      <div align="center"  class="col-md-4 col-lg-4 col-sl-12">
+       <img src="data:image/png;base64,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">
+        <h3>Time Saving</h3>
+        <p>It definitely saves you from standing<br> and waiting in long queues of TOLL-TAX.</p>
+      </div>
+      </div>
+
+
+      <div class="row third">
+        <p>
+        <h1><b>Download our mobile apps.</b></h1>
+        </p>
+      </div>
+      <div class="row forth">
+        <button type="submit" class="btn btn-dark left-button"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 172 172"  style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M146.57267,56.10067c-0.7052,0.44147 -17.4924,9.75813 -17.4924,30.41533c0.7912,23.55827 21.18467,31.82 21.5344,31.82c-0.34973,0.44147 -3.0788,11.25453 -11.1628,22.58933c-6.4156,9.76387 -13.5364,19.608 -24.34947,19.608c-10.2856,0 -13.97787,-6.50733 -25.84587,-6.50733c-12.7452,0 -16.35147,6.50733 -26.1096,6.50733c-10.81307,0 -18.46133,-10.3716 -25.22667,-20.04373c-8.7892,-12.6592 -16.25973,-32.5252 -16.52347,-51.6c-0.17773,-10.10787 1.76013,-20.04373 6.67933,-28.4832c6.94307,-11.782 19.33853,-19.78 32.87493,-20.04373c10.3716,-0.34973 19.60227,7.1208 25.93187,7.1208c6.06587,0 17.4064,-7.1208 30.2376,-7.1208c5.5384,0.00573 20.30747,1.67413 29.45213,15.738zM86.00573,38.34453c-1.84613,-9.23067 3.2508,-18.46133 7.998,-24.34947c6.06587,-7.1208 15.64627,-11.954 23.908,-11.954c0.52747,9.23067 -2.81507,18.2836 -8.7892,24.87693c-5.36067,7.1208 -14.59133,12.48147 -23.1168,11.42653z"></path></g></g></svg> Download</button>
+
+        <button type="submit" class="btn btn-outline-light"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 172 172" style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ffffff"><path d="M24.51,6.88l74.4975,73.96l20.425,-20.425l-90.3,-52.1375c-1.505,-0.87344 -3.1175,-1.35719 -4.6225,-1.3975zM18.275,10.32c-0.67187,1.19594 -1.075,2.60688 -1.075,4.1925v143.7275c0,1.15563 0.24188,2.19031 0.645,3.1175l76.2175,-75.68zM125.6675,63.9625l-21.8225,21.715l21.8225,21.6075l26.66,-15.265c3.78938,-2.19031 4.32688,-4.97187 4.3,-6.45c-0.04031,-2.44562 -1.58562,-4.73 -4.1925,-6.1275c-2.27094,-1.22281 -19.135,-11.04562 -26.7675,-15.48zM99.0075,90.515l-75.1425,74.4975c1.24969,-0.06719 2.60688,-0.33594 3.87,-1.075c2.94281,-1.70656 62.4575,-36.12 62.4575,-36.12l29.3475,-16.8775z"></path></g></g></svg> Download</button>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
